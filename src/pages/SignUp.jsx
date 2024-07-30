@@ -46,36 +46,46 @@ const SignUp = () => {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-100">
+      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        
         <input
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder='Fullname'
           name='fullName'
           value={formData.fullName}
           onChange={handleChange}
         />
-
+  
         <input
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder='Email'
           name='email'
           type="email"
           value={formData.email}
           onChange={handleChange}
         />
-
+  
         <input
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder='Password'
           name='password'
           type="password"
           value={formData.password}
           onChange={handleChange}
         />
-
-        <button type='submit' disabled={isSubmitting}>
+  
+        <button 
+          type='submit'
+          disabled={isSubmitting}
+          className={`w-full p-2 rounded-md text-white ${isSubmitting ? 'bg-gray-400' : 'bg-blue-500 hover:bg-blue-600'} focus:outline-none focus:ring-2 focus:ring-blue-500`}
+        >
           {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </form>
-      Already have an account?<Link to='/'>Login</Link> 
+      <p className="mt-4 text-gray-700">
+        Already have an account? <Link to='/' className="text-blue-500 hover:underline">Login</Link>
+      </p>
     </div>
   );
 }
